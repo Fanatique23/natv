@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список каналов</title>
+    <!-- Подключение библиотек jQuery и jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Скрипт для инициализации datepicker -->
+    <script>
+    $(function() {
+      $(".datepicker").datepicker({
+        dateFormat: "yy-mm-dd" // Формат даты
+      });
+    });
+
+    </script>
+</head>
+<body>
+<h1>Список каналов</h1>
+
+<!--<div>-->
+<!--  <textarea id="message" rows="4" cols="50" placeholder="Введите сообщение..."></textarea>-->
+<!--  <p>Сумма: $<span id="amount">0.00</span></p>-->
+<!--</div>-->
+
+<ul>
+    <li th:each="channel : ${channels}">
+        <span th:text="${channel.name}"></span>
+        <img th:src="@{/images/__${channel.imageUrl}__}" alt="Channel Image" width="100" height="100">
+        <ul>
+            <li th:each="price : ${channel.prices}">
+        <span>
+          (Start Date: <input type="text" class="datepicker"
+                              th:value="${#dates.format(price.startDate, 'yyyy-MM-dd')}"/>,
+          End Date: <input type="text" class="datepicker" th:value="${#dates.format(price.endDate, 'yyyy-MM-dd')}"/>)
+        </span>
+                <span th:text="${price.pricePerSymbol}"></span>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<h2>Message Counter</h2>
+
+<form action="#" th:if="${!calculated}" th:object="${message}" th:action="@{/calculate}" method="post">
+    <textarea rows="4" cols="50" th:field="*{content}" required></textarea>
+    <br>
+    <input type="submit" value="Calculate">
+</form>
+
+<div th:if="${calculated}">
+    <p>Your message: <span th:text="${message.content}"></span></p>
+    <p>Character count: <span th:text="${characterCount}"></span></p>
+</div>
+
+</body>
+</html>
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--  <title>Message Counter</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h2>Message Counter</h2>-->
+
+<!--<form action="#" th:if="${!calculated}" th:object="${message}" th:action="@{/calculate}" method="post">-->
+<!--  <textarea rows="4" cols="50" th:field="*{content}" required></textarea>-->
+<!--  <br>-->
+<!--  <input type="submit" value="Calculate">-->
+<!--</form>-->
+
+<!--<div th:if="${calculated}">-->
+<!--  <p>Your message: <span th:text="${message.content}"></span></p>-->
+<!--  <p>Character count: <span th:text="${characterCount}"></span></p>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+

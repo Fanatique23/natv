@@ -1,5 +1,6 @@
 package chanels.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class Discount {
 
     @ManyToOne
     @JoinColumn(name = "id_channel")
+    @JsonProperty("channel_id")
     private Channel channel;
 
     @Column

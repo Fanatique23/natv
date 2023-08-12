@@ -1,5 +1,6 @@
 package chanels.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class Channel {
     private Long id;
 
     @Column
+    @JsonProperty("channel_name")
     private String name;
 
     @Column
@@ -31,4 +33,7 @@ public class Channel {
 
     @OneToMany(mappedBy = "channel", cascade = CascadeType.ALL)
     private List<Price> prices = new ArrayList<>();
+
+    @OneToMany(mappedBy = "channel", cascade = CascadeType.ALL)
+    private List<Discount> discounts = new ArrayList<>();
 }

@@ -1,8 +1,10 @@
-package chanels.dtos;
+package chanels.models.dtos;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class DiscountDto {
     private int from_days_count;
     private double discount;

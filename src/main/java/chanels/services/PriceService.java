@@ -1,6 +1,6 @@
 package chanels.services;
 
-import chanels.entities.Price;
+import chanels.models.Price;
 import chanels.repositories.PriceRepository;
 import org.springframework.stereotype.Service;
 

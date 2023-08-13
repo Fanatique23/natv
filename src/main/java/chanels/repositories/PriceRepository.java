@@ -1,6 +1,6 @@
 package chanels.repositories;
 
-import chanels.entities.Price;
+import chanels.models.Price;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

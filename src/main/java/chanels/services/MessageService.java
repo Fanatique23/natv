@@ -1,7 +1,7 @@
 package chanels.services;
 
-import chanels.entities.Channel;
-import chanels.entities.MessageEntity;
+import chanels.models.Channel;
+import chanels.models.MessageEntity;
 import chanels.repositories.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

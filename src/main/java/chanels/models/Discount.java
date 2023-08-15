@@ -7,7 +7,6 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Date;
 
-
 @Entity
 @Getter
 @Setter
@@ -26,7 +25,7 @@ public class Discount {
     private double discount;
 
     @Column(name = "count_days")
-    private int countDays;
+    private int from_days_count;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "start_date")

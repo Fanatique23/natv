@@ -13,3 +13,12 @@ CREATE TABLE prices (
     start_date DATE,
     end_date DATE
 );
+
+CREATE TABLE discounts (
+    id SERIAL PRIMARY KEY,
+    id_channel BIGINT NOT NULL,
+    discount DOUBLE PRECISION NOT NULL,
+    count_days INT NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL
+);

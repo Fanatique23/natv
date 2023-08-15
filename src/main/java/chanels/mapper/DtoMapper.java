@@ -17,7 +17,12 @@ public class DtoMapper {
     }
 
     public ChannelDto convertToDto(Channel channel) {
-        return modelMapper.map(channel, ChannelDto.class);
+        ChannelDto channelDto = modelMapper.map(channel, ChannelDto.class);
+        channelDto.setChannel_id(channel.getId());
+        channelDto.setChannel_name(channel.getName());
+        channelDto.setImg_url(channel.getImageUrl());
+
+        return channelDto;
     }
 
     public List<ChannelDto> convertToDtoList(List<Channel> channels) {
@@ -26,4 +31,5 @@ public class DtoMapper {
                 .collect(Collectors.toList());
     }
 }
+
 
